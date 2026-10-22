@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -69,19 +70,31 @@ val publicaciones = listOf(
     Post(1678, R.drawable.post_24, "Y todavía quedan historias por contar ❤️")
 )
 
+
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
+fun image(image: String, modifier: Modifier = Modifier) {
+    Image(
+        imageVector = "$image",
         modifier = modifier
     )
 }
+
+
+@Composable
+fun Greeting( name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "$name!",
+        modifier = modifier
+    )
+}
+
 
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     ExamenU2_Carballo_ServinTheme {
-        Greeting("Instagram")
+        image("${R.drawable.foto_perfil}")
+        Greeting( "${usuarioEjemplo.username}")
     }
 }
